@@ -41,7 +41,7 @@ fun Main() {
 
 @Composable
 fun Navigation(navController: NavHostController) {
-    NavHost(navController, startDestination = NavigationItem.Calendar.route) {
+    NavHost(navController, startDestination = NavigationItem.Drivers.route) {
         composable(NavigationItem.Calendar.route) {
             CalendarScreen()
         }

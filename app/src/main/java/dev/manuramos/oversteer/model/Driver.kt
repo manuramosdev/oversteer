@@ -1,7 +1,5 @@
 package dev.manuramos.oversteer.model
 
-import java.util.*
-
 data class Driver(
     val driverId: String,
     val givenName: String,
@@ -10,7 +8,7 @@ data class Driver(
     val permanentNumber: Number,
     val code: String,
     val url: String,
-    val dateOfBirth: Date,
+    val dateOfBirth: String,
 ) {
     val fullName = """$givenName $familyName"""
 }
@@ -20,6 +18,6 @@ data class DriverStanding(
 //    "positionText": "21",
     val points: Number,
     val wins: Number,
-    val driver: Driver,
-    val constructors: List<Constructor>,
+    val Driver: Driver,
+    val Constructors: List<Constructor>,
 )
