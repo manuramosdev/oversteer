@@ -5,6 +5,7 @@ data class Constructor(
     val url: String,
     val name: String,
     val nationality: String,
+    val color: Long,
 )
 
 data class ConstructorStanding(

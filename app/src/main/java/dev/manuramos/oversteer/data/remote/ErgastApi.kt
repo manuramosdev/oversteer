@@ -1,14 +1,17 @@
 package dev.manuramos.oversteer.data.remote
 
-import dev.manuramos.oversteer.domain.model.DriverStanding
+import dev.manuramos.oversteer.data.remote.dto.DriverResultsResponse
+import dev.manuramos.oversteer.data.remote.dto.DriverStandingsResponse
 import retrofit2.http.GET
-
-class StandingsResponse(val MRData: MRDataStandings)
-data class MRDataStandings( val StandingsTable: StandingsTable)
-data class StandingsTable(val season: Int, val StandingsLists: List<StandingsList>)
-data class StandingsList(val season: Int, val round: Int, val DriverStandings: List<DriverStanding>)
+import retrofit2.http.Path
 
 interface ErgastApi {
-    @GET("2021/driverStandings.json")
-    suspend fun getDriverStandings(): StandingsResponse
+    @GET("{season}/driverStandings.json")
+    suspend fun getDriversStandings(@Path("season") season: Int): DriverStandingsResponse
+
+    @GET("{season}/drivers/{driverId}/results.json")
+    suspend fun getDriverResults(
+        @Path("season") season: Int,
+        @Path("driverId") driverId: String
+    ): DriverResultsResponse
 }

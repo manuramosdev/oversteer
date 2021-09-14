@@ -36,11 +36,10 @@ fun DriversList(
 
 @Composable
 fun DriverRow(driverStanding: DriverStanding) {
-    val color = Color(COLORS[driverStanding.Constructors.first().constructorId] ?: 0xFFFFFFFF)
     Row(
         modifier = Modifier
             .padding(all = 8.dp)
-            .background(color)
+            .background(Color(driverStanding.Constructors.first().color))
             .height(60.dp),
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
