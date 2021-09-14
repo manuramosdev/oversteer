@@ -13,12 +13,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.manuramos.oversteer.FAKE_DATA
+import dev.manuramos.oversteer.domain.model.COLORS
+import dev.manuramos.oversteer.domain.model.Constructor
+import dev.manuramos.oversteer.domain.model.Driver
+import dev.manuramos.oversteer.domain.model.DriverStanding
 import dev.manuramos.oversteer.formula1Bold
 import dev.manuramos.oversteer.formula1Regular
-import dev.manuramos.oversteer.model.COLORS
-import dev.manuramos.oversteer.model.Constructor
-import dev.manuramos.oversteer.model.Driver
-import dev.manuramos.oversteer.model.DriverStanding
 
 @Composable
 fun DriversScreen() {

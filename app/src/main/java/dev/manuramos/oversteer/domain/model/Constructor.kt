@@ -1,4 +1,4 @@
-package dev.manuramos.oversteer.model
+package dev.manuramos.oversteer.domain.model
 
 data class Constructor(
     val constructorId: String,

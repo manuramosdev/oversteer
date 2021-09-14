@@ -1,6 +1,4 @@
-package dev.manuramos.oversteer.model
-
-import dev.manuramos.oversteer.domain.model.Constructor
+package dev.manuramos.oversteer.domain.model
 
 data class Driver(
     val driverId: String,
