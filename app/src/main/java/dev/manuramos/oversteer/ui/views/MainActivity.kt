@@ -14,10 +14,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import dagger.hilt.android.AndroidEntryPoint
 import dev.manuramos.oversteer.R
 import dev.manuramos.oversteer.ui.theme.OversteerTheme
 import dev.manuramos.oversteer.ui.theme.Purple500
+import dev.manuramos.oversteer.ui.views.driver_standings.DriversScreen
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
