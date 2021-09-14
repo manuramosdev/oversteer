@@ -13,7 +13,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.manuramos.oversteer.FAKE_DATA
-import dev.manuramos.oversteer.domain.model.COLORS
 import dev.manuramos.oversteer.domain.model.Constructor
 import dev.manuramos.oversteer.domain.model.Driver
 import dev.manuramos.oversteer.domain.model.DriverStanding
@@ -39,17 +38,17 @@ fun DriverRow(driverStanding: DriverStanding) {
     Row(
         modifier = Modifier
             .padding(all = 8.dp)
-            .background(Color(driverStanding.Constructors.first().color))
+            .background(Color(driverStanding.constructors.first().color))
             .height(60.dp),
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {
         BoldNumber(driverStanding.position.toString())
         Spacer(modifier = Modifier.width(12.dp))
-        DriverName(driverStanding.Driver)
-        BoldNumber(driverStanding.Driver.permanentNumber.toString())
+        DriverName(driverStanding.driver)
+        BoldNumber(driverStanding.driver.permanentNumber.toString())
         Spacer(modifier = Modifier.width(1.dp))
-        DriverConstructors(driverStanding.Constructors)
+        DriverConstructors(driverStanding.constructors)
         Spacer(modifier = Modifier.width(12.dp))
         BoldNumber("""${driverStanding.points} p""")
     }

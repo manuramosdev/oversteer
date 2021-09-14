@@ -18,6 +18,6 @@ data class DriverStanding(
 //    "positionText": "21",
     val points: Number,
     val wins: Number,
-    val Driver: Driver,
-    val Constructors: List<Constructor>,
+    val driver: Driver,
+    val constructors: List<Constructor>,
 )

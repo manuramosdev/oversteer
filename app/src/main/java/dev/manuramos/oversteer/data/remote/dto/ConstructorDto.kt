@@ -15,5 +15,4 @@ fun ConstructorDto.toConstructor(): Constructor = Constructor(
     name = name,
     nationality = nationality,
     url = url,
-    color = COLORS[constructorId] ?: 0xFFFFFFFF
 )

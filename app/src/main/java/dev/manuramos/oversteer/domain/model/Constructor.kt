@@ -5,8 +5,9 @@ data class Constructor(
     val url: String,
     val name: String,
     val nationality: String,
-    val color: Long,
-)
+) {
+    val color = COLORS[constructorId] ?: 0xFFFFFFFF
+}
 
 data class ConstructorStanding(
     val position: Number,
