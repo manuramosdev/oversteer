@@ -1,4 +1,4 @@
-package dev.manuramos.oversteer
+package dev.manuramos.oversteer.ui.views
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -12,6 +12,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import dev.manuramos.oversteer.FAKE_DATA
+import dev.manuramos.oversteer.formula1Bold
+import dev.manuramos.oversteer.formula1Regular
 import dev.manuramos.oversteer.model.COLORS
 import dev.manuramos.oversteer.model.Constructor
 import dev.manuramos.oversteer.model.Driver
@@ -67,7 +70,7 @@ private fun DriverName(driver: Driver) {
         )
         Text(
             text = driver.familyName,
-            fontSize = 20.sp,
+            fontSize = 18.sp,
             fontFamily = formula1Bold
         )
     }
@@ -77,7 +80,7 @@ private fun DriverName(driver: Driver) {
 private fun BoldNumber(text: String) {
     Text(
         text = text,
-        fontSize = 32.sp,
+        fontSize = 22.sp,
         fontFamily = formula1Bold
     )
 }

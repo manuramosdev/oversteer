@@ -1,4 +1,4 @@
-package dev.manuramos.oversteer
+package dev.manuramos.oversteer.ui.views
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -14,6 +14,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import dev.manuramos.oversteer.R
 import dev.manuramos.oversteer.ui.theme.OversteerTheme
 import dev.manuramos.oversteer.ui.theme.Purple500
 

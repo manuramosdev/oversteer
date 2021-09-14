@@ -1,9 +1,9 @@
-package dev.manuramos.oversteer
+package dev.manuramos.oversteer.ui.views
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 
 @Composable
-fun ConstructorsScreen() {
-    Text(text = "Constructors")
+fun StatsScreen() {
+    Text(text = "Stats")
 }
