@@ -1,8 +1,8 @@
 package dev.manuramos.oversteer.data.remote.dto
 
-data class Result(
-    val Constructor: Constructor,
-    val Driver: Driver,
+data class ResultDto(
+    val Constructor: ConstructorDto,
+    val Driver: DriverDto,
     val FastestLap: FastestLap,
     val Time: TimeX,
     val grid: String,
