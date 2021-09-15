@@ -38,7 +38,7 @@ fun DriverRow(
         Spacer(modifier = Modifier.width(1.dp))
         DriverConstructors(driverStanding.constructors)
         Spacer(modifier = Modifier.width(12.dp))
-        BoldNumber("""${driverStanding.points} p""")
+        BoldNumber("""${driverStanding.points} p""") // todo decimals
     }
 }
 

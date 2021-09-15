@@ -1,12 +1,11 @@
 package dev.manuramos.oversteer.data.remote.dto
 
-import com.google.gson.annotations.SerializedName
 import dev.manuramos.oversteer.domain.model.DriverStanding
 
 data class DriverStandingDto(
-    val constructors: List<ConstructorDto>,
+    val Constructors: List<ConstructorDto>,
     val Driver: DriverDto,
-    val points: String,
+    val points: Number,
     val position: String,
     val positionText: String,
     val wins: String
@@ -14,9 +13,9 @@ data class DriverStandingDto(
 
 fun DriverStandingDto.toDriverStanding(): DriverStanding = DriverStanding(
     position = position.toInt(),
-    points = points.toInt(),
+    points = points.toDouble(),
     wins = wins.toInt(),
     driver = Driver.toDriver(),
-    constructors = constructors.map { it.toConstructor() }
+    constructors = Constructors.map { it.toConstructor() }
 
 )

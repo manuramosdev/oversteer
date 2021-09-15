@@ -4,10 +4,13 @@ import dev.manuramos.oversteer.data.remote.dto.DriverResultsResponse
 import dev.manuramos.oversteer.data.remote.dto.DriverStandingsResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
+import java.util.*
 
 interface ErgastApi {
     @GET("{season}/driverStandings.json")
-    suspend fun getDriversStandings(@Path("season") season: Int): DriverStandingsResponse
+    suspend fun getDriversStandings(
+        @Path("season") season: Int = Calendar.getInstance().get(Calendar.YEAR)
+    ): DriverStandingsResponse
 
     @GET("{season}/drivers/{driverId}/results.json")
     suspend fun getDriverResults(

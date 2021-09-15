@@ -6,12 +6,11 @@ import dev.manuramos.oversteer.data.remote.dto.Race
 import dev.manuramos.oversteer.domain.repository.DriverRepository
 import javax.inject.Inject
 
-
 class DriverRepositoryImpl @Inject constructor(
     private val api: ErgastApi
 ) : DriverRepository {
     override suspend fun getDriverStandings(season: Int): List<DriverStandingDto> {
-        return api.getDriversStandings(season).MRData.StandingsTable.StandingsLists.first().driverStandingDtos
+        return api.getDriversStandings(season = season).MRData.StandingsTable.StandingsLists.first().DriverStandings
     }
 
     override suspend fun getDriverResults(season: Int, driverId: String): List<Race> {

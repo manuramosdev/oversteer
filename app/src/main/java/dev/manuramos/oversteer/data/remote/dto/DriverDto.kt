@@ -14,12 +14,12 @@ data class DriverDto(
 )
 
 fun DriverDto.toDriver(): Driver = Driver(
-    driverId =  driverId,
-    givenName =  givenName,
-    familyName =  familyName,
-    nationality =  nationality,
-    permanentNumber =  permanentNumber.toInt(),
-    code =  code,
-    url =  url,
-    dateOfBirth =  dateOfBirth,
+    driverId = driverId,
+    givenName = givenName,
+    familyName = familyName,
+    nationality = nationality,
+    permanentNumber = permanentNumber.toInt(),
+    code = code,
+    url = url,
+    dateOfBirth = dateOfBirth,
 )

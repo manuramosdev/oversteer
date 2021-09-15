@@ -1,6 +1,5 @@
 package dev.manuramos.oversteer.data.remote.dto
 
-import dev.manuramos.oversteer.domain.model.COLORS
 import dev.manuramos.oversteer.domain.model.Constructor
 
 data class ConstructorDto(

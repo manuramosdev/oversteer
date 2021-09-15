@@ -16,12 +16,17 @@ class GetDriverStandingsUseCase @Inject constructor(
     operator fun invoke(season: Int): Flow<Resource<List<DriverStanding>>> =
         flow {
             try {
-                emit(Resource.Loading())
-                val driverStandings: List<DriverStanding> =
+                emit(Resource.Loading<List<DriverStanding>>())
+                val driverStandings =
                     repository.getDriverStandings(season = season).map { it.toDriverStanding() }
+                emit(Resource.Success(driverStandings))
 
             } catch (e: HttpException) {
-                emit(Resource.Error<List<DriverStanding>>(e.localizedMessage ?: "An unexpected error occurred"))
+                emit(
+                    Resource.Error<List<DriverStanding>>(
+                        e.localizedMessage ?: "An unexpected error occurred"
+                    )
+                )
             } catch (e: IOException) {
                 // todo database?
                 emit(Resource.Error<List<DriverStanding>>("Couldn't reach server. Check your internet connection."))
