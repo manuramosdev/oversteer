@@ -9,7 +9,7 @@ data class DriverDto(
     val familyName: String,
     val givenName: String,
     val nationality: String,
-    val permanentNumber: String,
+    val permanentNumber: String?,
     val url: String
 )
 
@@ -18,7 +18,7 @@ fun DriverDto.toDriver(): Driver = Driver(
     givenName = givenName,
     familyName = familyName,
     nationality = nationality,
-    permanentNumber = permanentNumber.toInt(),
+    permanentNumber = permanentNumber?.toInt(),
     code = code,
     url = url,
     dateOfBirth = dateOfBirth,

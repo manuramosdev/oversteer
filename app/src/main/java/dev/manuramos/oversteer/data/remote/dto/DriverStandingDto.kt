@@ -5,7 +5,7 @@ import dev.manuramos.oversteer.domain.model.DriverStanding
 data class DriverStandingDto(
     val Constructors: List<ConstructorDto>,
     val Driver: DriverDto,
-    val points: Number,
+    val points: String,
     val position: String,
     val positionText: String,
     val wins: String
@@ -13,7 +13,7 @@ data class DriverStandingDto(
 
 fun DriverStandingDto.toDriverStanding(): DriverStanding = DriverStanding(
     position = position.toInt(),
-    points = points.toDouble(),
+    points = points,
     wins = wins.toInt(),
     driver = Driver.toDriver(),
     constructors = Constructors.map { it.toConstructor() }

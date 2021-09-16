@@ -5,7 +5,7 @@ data class Driver(
     val givenName: String,
     val familyName: String,
     val nationality: String,
-    val permanentNumber: Number,
+    val permanentNumber: Number?,
     val code: String,
     val url: String,
     val dateOfBirth: String,
@@ -16,7 +16,7 @@ data class Driver(
 data class DriverStanding(
     val position: Number,
 //    "positionText": "21",
-    val points: Number,
+    val points: String,
     val wins: Number,
     val driver: Driver,
     val constructors: List<Constructor>,
