@@ -7,15 +7,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import dev.manuramos.oversteer.domain.model.DriverStanding
 import dev.manuramos.oversteer.driverStandings
+import dev.manuramos.oversteer.ui.views.ListScreen
 import dev.manuramos.oversteer.ui.views.driver_standings.components.DriverRow
 
 @Composable
-fun DriversScreen(
-    viewModel: DriversStandingsViewModel = hiltViewModel(),
-) {
-    val state = viewModel.state
-    DriversList(drivers = state.value.driversStandings)
-}
+fun DriversScreen(viewModel: DriversStandingsViewModel = hiltViewModel()) =
+    ListScreen(viewModel) @Composable {  DriverRow(it) }
 
 @Composable
 fun DriversList(

@@ -25,7 +25,7 @@ open class ListViewModel<T>(
             _state.value = when (result) {
                 is Resource.Loading -> ListState(isLoading = true)
                 is Resource.Error -> ListState(error = result.message ?: "Known error")
-                is Resource.Success -> ListState(driversStandings = result.data ?: emptyList())
+                is Resource.Success -> ListState(items = result.data ?: emptyList())
             }
         }.launchIn(viewModelScope)
     }
@@ -54,6 +54,6 @@ open class GetListUseCase<T>(
 
 data class ListState<T>(
     val isLoading: Boolean = false,
-    val driversStandings: List<T> = emptyList(),
+    val items: List<T> = emptyList(),
     val error: String = ""
 )
