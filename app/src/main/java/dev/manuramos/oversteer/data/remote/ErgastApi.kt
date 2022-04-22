@@ -13,6 +13,11 @@ interface ErgastApi {
         @Path("season") season: Int = Calendar.getInstance().get(Calendar.YEAR)
     ): DriverStandingsResponse
 
+  @GET("{season}/constructorStandings.json")
+    suspend fun getConstructorsStandings(
+        @Path("season") season: Int = Calendar.getInstance().get(Calendar.YEAR)
+    ): ConstructorsStandingsResponse
+
     @GET("{season}/drivers/{driverId}/results.json")
     suspend fun getDriverResults(
         @Path("season") season: Int,

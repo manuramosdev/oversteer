@@ -24,11 +24,3 @@ data class StandingsListsConstructorStandings(
     val round: String,
     val season: String
 )
-
-data class ConstructorStandingDto(
-    val Constructor: ConstructorDto,
-    val points: String,
-    val position: String,
-    val positionText: String,
-    val wins: String
-)

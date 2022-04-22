@@ -12,10 +12,10 @@ data class Constructor(
 }
 
 data class ConstructorStanding(
-    val position: Number,
-//    "positionText": "21",
-    val points: Number,
-    val wins: Number,
+    // todo numbers
+    val position: String,
+    val points: String,
+    val wins: String,
     val constructor: Constructor,
 )
 
