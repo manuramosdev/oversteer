@@ -42,7 +42,7 @@ fun DriverRow(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Spacer(modifier = Modifier.width(4.dp))
-        Position(driverStanding)
+        Position(driverStanding.position)
         Spacer(modifier = Modifier.width(4.dp))
         DriverName(driverStanding.driver)
         DriverNumber(driverStanding.driver.permanentNumber?.toString())
@@ -94,8 +94,8 @@ private fun DriverName(driver: Driver) {
 }
 
 @Composable
-private fun Position(driverStanding: DriverStanding) {
-    val positionNumber = driverStanding.position.toInt()
+fun Position(position: String) {
+    val positionNumber = position.toInt()
     val ordinal = positionNumber.th
     Text(
         fontSize = 22.sp,
@@ -137,7 +137,7 @@ private fun DriverNumber(text: String?) {
 }
 
 @Composable
-private fun Points(points: String) {
+fun Points(points: String) {
     Text(
         text = points,
         fontSize = 22.sp,

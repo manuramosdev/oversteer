@@ -14,7 +14,7 @@ data class Driver(
 }
 
 data class DriverStanding(
-    val position: Number,
+    val position: String,
 //    "positionText": "21",
     val points: String,
     val wins: Number,

@@ -15,9 +15,9 @@ val ferrari = Constructor("ferrari", "", "Ferrari", "Italian")
 val williams = Constructor("williams", "", "Williams", "British")
 val renault = Constructor("renault", "", "Renault", "French")
 val driverStandings: List<DriverStanding> = listOf(
-    DriverStanding(1, "200", 5, hamilton, listOf(mercedes)),
-    DriverStanding(2, "150", 4, bottas, listOf(mercedes)),
-    DriverStanding(3, "120", 3, russell, listOf(williams, mercedes)),
-    DriverStanding(4, "80", 2, sainz, listOf(ferrari)),
-    DriverStanding(15, "55", 1, alonso06, listOf(renault)),
+    DriverStanding("1", "200", 5, hamilton, listOf(mercedes)),
+    DriverStanding("2", "150", 4, bottas, listOf(mercedes)),
+    DriverStanding("3", "120", 3, russell, listOf(williams, mercedes)),
+    DriverStanding("4", "80", 2, sainz, listOf(ferrari)),
+    DriverStanding("15", "55", 1, alonso06, listOf(renault)),
 )
