@@ -16,10 +16,10 @@ open class ListViewModel<T>(
     open val state: State<ListState<T>> = _state
 
     init {
-        getLists()
+        getItems()
     }
 
-    private fun getLists() {
+    private fun getItems() {
         getListUseCase().onEach { result ->
             _state.value = when (result) {
                 is Resource.Loading -> ListState(isLoading = true)

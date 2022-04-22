@@ -28,8 +28,8 @@ data class RaceDto(
     val FirstPractice: SessionTimeDto,
     val Qualifying: SessionTimeDto,
     val SecondPractice: SessionTimeDto,
-    val Sprint: SessionTimeDto,
-    val ThirdPractice: SessionTimeDto,
+    val Sprint: SessionTimeDto?,
+    val ThirdPractice: SessionTimeDto?,
     val date: String,
     val raceName: String,
     val round: String,
@@ -42,13 +42,13 @@ data class RaceDto(
         firstPractice = FirstPractice.toDomain(),
         qualifying = Qualifying.toDomain(),
         secondPractice = SecondPractice.toDomain(),
-        sprint = Sprint.toDomain(),
-        thirdPractice = ThirdPractice.toDomain(),
-        date = date,
+        sprint = Sprint?.toDomain(),
+        thirdPractice = ThirdPractice?.toDomain(),
+        // todo
+        race = Date(),
         raceName = raceName,
         round = round,
         season = season,
-        time = time,
         url = url,
     )
 }
@@ -57,5 +57,6 @@ data class SessionTimeDto(
     val date: String,
     val time: String
 ) : Dto<Date> {
+    // todo
     override fun toDomain(): Date = Date()
 }

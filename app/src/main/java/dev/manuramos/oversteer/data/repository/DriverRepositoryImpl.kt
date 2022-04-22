@@ -16,7 +16,7 @@ class DriverRepositoryImpl @Inject constructor(
         api.getConstructorsStandings(season).MRData.StandingsTable.StandingsLists.first().ConstructorStandings
             .toDomain()
 
-    override suspend fun getDriverResults(season: Int, driverId: String) =
-        api.getDriverResults(season = season, driverId = driverId).MRData.RaceTable.Races
+    override suspend fun getCalendar(season: Int) =
+        api.getCalendar(season = season).MRData.RaceTable.Races
             .toDomain()
 }

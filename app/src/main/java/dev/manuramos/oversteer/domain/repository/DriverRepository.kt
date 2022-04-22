@@ -9,5 +9,5 @@ interface DriverRepository {
 
     suspend fun getConstructorsStandings(season: Int): List<ConstructorStanding>
 
-    suspend fun getDriverResults(season: Int, driverId: String): List<Race>
+    suspend fun getCalendar(season: Int): List<Race>
 }

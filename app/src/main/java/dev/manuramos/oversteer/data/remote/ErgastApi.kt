@@ -1,5 +1,6 @@
 package dev.manuramos.oversteer.data.remote
 
+import dev.manuramos.oversteer.data.remote.dto.CalendarResponse
 import dev.manuramos.oversteer.data.remote.dto.ConstructorsStandingsResponse
 import dev.manuramos.oversteer.data.remote.dto.DriverResultsResponse
 import dev.manuramos.oversteer.data.remote.dto.DriverStandingsResponse
@@ -23,4 +24,9 @@ interface ErgastApi {
         @Path("season") season: Int,
         @Path("driverId") driverId: String
     ): DriverResultsResponse
+
+    @GET("{season}.json")
+    suspend fun getCalendar(
+        @Path("season") season: Int,
+    ): CalendarResponse
 }
