@@ -1,5 +1,6 @@
 package dev.manuramos.oversteer.data.remote.dto
 
+import dev.manuramos.oversteer.data.Dto
 import dev.manuramos.oversteer.domain.model.Driver
 
 data class DriverDto(
@@ -11,15 +12,16 @@ data class DriverDto(
     val nationality: String,
     val permanentNumber: String?,
     val url: String
-)
-
-fun DriverDto.toDriver(): Driver = Driver(
-    driverId = driverId,
-    givenName = givenName,
-    familyName = familyName,
-    nationality = nationality,
-    permanentNumber = permanentNumber?.toInt(),
-    code = code,
-    url = url,
-    dateOfBirth = dateOfBirth,
-)
+): Dto<Driver> {
+    override fun toDomain() = Driver(
+        driverId = driverId,
+        givenName = givenName,
+        familyName = familyName,
+        nationality = nationality,
+        // todo catch exception
+        permanentNumber = permanentNumber?.toInt(),
+        code = code,
+        url = url,
+        dateOfBirth = dateOfBirth,
+    )
+}

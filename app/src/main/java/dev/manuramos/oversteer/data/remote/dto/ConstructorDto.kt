@@ -1,5 +1,6 @@
 package dev.manuramos.oversteer.data.remote.dto
 
+import dev.manuramos.oversteer.data.Dto
 import dev.manuramos.oversteer.domain.model.Constructor
 
 data class ConstructorDto(
@@ -7,11 +8,11 @@ data class ConstructorDto(
     val name: String,
     val nationality: String,
     val url: String
-)
-
-fun ConstructorDto.toConstructor(): Constructor = Constructor(
-    constructorId = constructorId,
-    name = name,
-    nationality = nationality,
-    url = url,
-)
+): Dto<Constructor> {
+    override fun toDomain() = Constructor(
+        constructorId = constructorId,
+        name = name,
+        nationality = nationality,
+        url = url,
+    )
+}

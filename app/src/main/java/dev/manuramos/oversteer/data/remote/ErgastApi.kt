@@ -1,5 +1,6 @@
 package dev.manuramos.oversteer.data.remote
 
+import dev.manuramos.oversteer.data.remote.dto.ConstructorsStandingsResponse
 import dev.manuramos.oversteer.data.remote.dto.DriverResultsResponse
 import dev.manuramos.oversteer.data.remote.dto.DriverStandingsResponse
 import retrofit2.http.GET

@@ -1,5 +1,7 @@
 package dev.manuramos.oversteer.data.remote.dto
 
+import dev.manuramos.oversteer.data.Dto
+import dev.manuramos.oversteer.data.toDomain
 import dev.manuramos.oversteer.domain.model.DriverStanding
 
 data class DriverStandingDto(
@@ -9,13 +11,12 @@ data class DriverStandingDto(
     val position: String,
     val positionText: String,
     val wins: String
-)
-
-fun DriverStandingDto.toDriverStanding(): DriverStanding = DriverStanding(
-    position = position.toInt(),
-    points = points,
-    wins = wins.toInt(),
-    driver = Driver.toDriver(),
-    constructors = Constructors.map { it.toConstructor() }
-
-)
+): Dto<DriverStanding> {
+    override fun toDomain(): DriverStanding = DriverStanding(
+        position = position.toInt(),
+        points = points,
+        wins = wins.toInt(),
+        driver = Driver.toDomain(),
+        constructors = Constructors.toDomain()
+    )
+}
