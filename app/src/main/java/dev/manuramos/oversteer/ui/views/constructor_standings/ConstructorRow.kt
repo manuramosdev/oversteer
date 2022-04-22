@@ -19,19 +19,16 @@ fun ConstructorRow(constructorStanding: ConstructorStanding) {
     val teamColor = constructorStanding.constructor.color
     Row(
         modifier = Modifier
-            .padding(all = 4.dp)
+            .padding(all = 2.dp)
             .background(teamColor)
-            .height(60.dp),
+            .height(48.dp),
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {
         Spacer(modifier = Modifier.width(4.dp))
         Position(constructorStanding.position)
         Spacer(modifier = Modifier.width(4.dp))
-        Text(
-            text = constructorStanding.constructor.name,
-            fontFamily = formula1Bold
-        )
+        ConstructorName(constructorStanding)
         Spacer(modifier = Modifier.width(10.dp))
         Text(
             text = constructorStanding.constructor.nationality,
@@ -40,4 +37,15 @@ fun ConstructorRow(constructorStanding: ConstructorStanding) {
         Spacer(modifier = Modifier.width(12.dp))
         Points(constructorStanding.points)
     }
+}
+
+@Composable
+private fun ConstructorName(constructorStanding: ConstructorStanding) {
+    val name = constructorStanding.constructor.name.replace(
+        " F1 Team", ""
+    )
+    Text(
+        text = name,
+        fontFamily = formula1Bold
+    )
 }

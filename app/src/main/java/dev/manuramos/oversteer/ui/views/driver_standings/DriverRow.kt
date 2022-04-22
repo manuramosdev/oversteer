@@ -32,9 +32,9 @@ fun DriverRow(
     val teamColor = driverStanding.constructors.first().color
     Row(
         modifier = Modifier
-            .padding(all = 4.dp)
+            .padding(all = 2.dp)
             .background(teamColor)
-            .height(60.dp),
+            .height(48.dp),
         horizontalArrangement = Arrangement.SpaceEvenly,
         verticalAlignment = Alignment.CenterVertically
     ) {
