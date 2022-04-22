@@ -26,20 +26,10 @@ class DriversStandingsViewModel @Inject constructor(
     private fun getDriversStandings() {
         val season = Calendar.getInstance().get(Calendar.YEAR)
         getDriversStandingsUseCase(season).onEach { result ->
-            when (result) {
-                is Resource.Loading -> {
-                    _state.value = DriverStandingsState(isLoading = true)
-                }
-                is Resource.Error -> {
-                    // todo centralized error
-                    _state.value = DriverStandingsState(error = result.message ?: "Unknown error")
-                }
-                is Resource.Success -> {
-                    // todo emptyListError?
-                    _state.value =
-                        DriverStandingsState(driversStandings = result.data ?: emptyList())
-
-                }
+            _state.value = when (result) {
+                is Resource.Loading -> DriverStandingsState(isLoading = true)
+                is Resource.Error -> DriverStandingsState(error = result.message ?: "Known error")
+                is Resource.Success -> DriverStandingsState(driversStandings = result.data ?: emptyList())
             }
 
         }.launchIn(viewModelScope)

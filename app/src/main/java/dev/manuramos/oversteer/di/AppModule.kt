@@ -30,7 +30,5 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideDriverRepository(api: ErgastApi): DriverRepository {
-        return DriverRepositoryImpl(api)
-    }
+    fun provideDriverRepository(api: ErgastApi): DriverRepository = DriverRepositoryImpl(api)
 }

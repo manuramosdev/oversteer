@@ -53,12 +53,14 @@ fun DriverRow(
     }
 }
 
-fun Int.toOrdinal() = if (this % 100 in 11..13) "th" else when (this % 10) {
-    1 -> "st"
-    2 -> "nd"
-    3 -> "rd"
-    else -> "th"
-}
+val Int.th: String
+    get() = if (this % 100 in 11..13) "th" else when (this % 10) {
+        1 -> "st"
+        2 -> "nd"
+        3 -> "rd"
+        else -> "th"
+    }
+
 
 
 @Composable
@@ -96,7 +98,7 @@ private fun DriverName(driver: Driver) {
 @Composable
 private fun Position(driverStanding: DriverStanding) {
     val positionNumber = driverStanding.position.toInt()
-    val ordinal = positionNumber.toOrdinal()
+    val ordinal = positionNumber.th
     Text(
         fontSize = 22.sp,
         fontFamily = formula1Bold,
