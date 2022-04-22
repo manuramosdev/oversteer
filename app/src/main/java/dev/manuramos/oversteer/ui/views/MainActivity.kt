@@ -19,6 +19,7 @@ import dev.manuramos.oversteer.R
 import dev.manuramos.oversteer.ui.theme.OversteerTheme
 import dev.manuramos.oversteer.ui.theme.Purple500
 import dev.manuramos.oversteer.ui.views.calendar.CalendarScreen
+import dev.manuramos.oversteer.ui.views.constructor_standings.ConstructorsScreen
 import dev.manuramos.oversteer.ui.views.driver_standings.DriversScreen
 import dev.manuramos.oversteer.ui.views.stats.StatsScreen
 

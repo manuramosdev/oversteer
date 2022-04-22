@@ -8,7 +8,7 @@ data class Constructor(
     val name: String,
     val nationality: String,
 ) {
-    val color: Color = COLORS[constructorId] ?: Color(0xFFFFFFFF)
+    val color = Color(COLORS[constructorId] ?: 0xFFFFFFFF)
 }
 
 data class ConstructorStanding(
@@ -18,24 +18,23 @@ data class ConstructorStanding(
     val wins: String,
     val constructor: Constructor,
 )
-
-val COLORS: Map<String, Color> = mapOf(
-    "mercedes" to Color(0xFF00D2BE),
-    "red_bull" to Color(0xFF0600EF),
-    "alpine" to Color(0xFF0090FF),
-    "alphatauri" to Color(0xFF2B4562),
-    "williams" to Color(0xFF005AFF),
-    "aston_martin" to Color(0xFF006F62),
-    "ferrari" to Color(0xFFDC0000),
-    "alfa" to Color(0xFF900000),
-    "haas" to Color(0xFF787878),
+val COLORS: Map<String, Long> = mapOf(
+    "mercedes" to 0xFF00D2BE,
+    "red_bull" to 0xFF0600EF,
+    "alpine" to 0xFF0090FF,
+    "alphatauri" to 0xFF2B4562,
+    "williams" to 0xFF005AFF,
+    "aston_martin" to 0xFF006F62,
+    "ferrari" to 0xFFDC0000,
+    "alfa" to 0xFF900000,
+    "haas" to 0xFF787878,
 //    "haas" to Color(0xFFFFFFFF),
-    "mclaren" to Color(0xFFFF8700),
+    "mclaren" to 0xFFFF8700,
 
-    "renault" to Color(0xFFFFF500),
+    "renault" to 0xFFFFF500,
 //    "renault" to Color(0xFF00ACFA),
-    "force_india" to Color(0xFFF596C8),
-    "racing_point" to Color(0xFFF596C8),
-    "toro_rosso" to Color(0xFF469BFF),
-    "sauber" to Color(0xFF006EFF)
+    "force_india" to 0xFFF596C8,
+    "racing_point" to 0xFFF596C8,
+    "toro_rosso" to 0xFF469BFF,
+    "sauber" to 0xFF006EFF
 )
