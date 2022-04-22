@@ -1,4 +1,4 @@
-package dev.manuramos.oversteer.ui.views
+package dev.manuramos.oversteer.ui.views.calendar
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable

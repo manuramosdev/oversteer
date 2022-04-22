@@ -5,9 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.manuramos.oversteer.common.Resource
-import dev.manuramos.oversteer.domain.model.DriverStanding
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+import dev.manuramos.oversteer.domain.use_case.GetListUseCase
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -35,24 +33,7 @@ open class ListViewModel<T>(
     // todo emptyListError?
 }
 
-open class GetListUseCase<T>(
-    val getItems: suspend () -> List<T>
-) {
-
-    // todo errors
-    // todo database?
-    operator fun invoke(): Flow<Resource<List<T>>> =
-        flow {
-            try {
-                emit(Resource.Loading())
-                val items = getItems()
-                emit(Resource.Success(items))
-            } catch (e: Exception) {
-                emit(Resource.Error("Couldn't reach server. Check your internet connection."))
-            }
-        }
-}
-
+// todo not used
 data class ListState<T>(
     val isLoading: Boolean = false,
     val items: List<T> = emptyList(),

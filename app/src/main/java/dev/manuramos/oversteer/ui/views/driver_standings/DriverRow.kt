@@ -1,4 +1,4 @@
-package dev.manuramos.oversteer.ui.views.driver_standings.components
+package dev.manuramos.oversteer.ui.views.driver_standings
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -9,11 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -23,7 +19,8 @@ import dev.manuramos.oversteer.domain.model.DriverStanding
 import dev.manuramos.oversteer.driverStandings
 import dev.manuramos.oversteer.formula1Bold
 import dev.manuramos.oversteer.formula1Regular
-import dev.manuramos.oversteer.ui.views.driver_standings.DriversList
+import dev.manuramos.oversteer.ui.views.components.Points
+import dev.manuramos.oversteer.ui.views.components.Position
 
 
 @Composable
@@ -52,14 +49,6 @@ fun DriverRow(
         Points(driverStanding.points)
     }
 }
-
-val Int.th: String
-    get() = if (this % 100 in 11..13) "th" else when (this % 10) {
-        1 -> "st"
-        2 -> "nd"
-        3 -> "rd"
-        else -> "th"
-    }
 
 @Composable
 private fun DriverConstructors(constructors: List<Constructor>) {
@@ -94,32 +83,6 @@ private fun DriverName(driver: Driver) {
 }
 
 @Composable
-fun Position(position: String) {
-    val positionNumber = position.toInt()
-    val ordinal = positionNumber.th
-    Text(
-        fontSize = 22.sp,
-        fontFamily = formula1Bold,
-        modifier = Modifier.width(45.dp),
-        text = buildAnnotatedString {
-            withStyle(
-                style = SpanStyle()
-            ) {
-                append(positionNumber.toString())
-            }
-            withStyle(
-                style = SpanStyle(
-                    baselineShift = BaselineShift.Superscript,
-                    fontSize = 10.sp
-                )
-            ) {
-                append(ordinal)
-            }
-        }
-    )
-}
-
-@Composable
 private fun DriverNumber(text: String?) {
     if (text != null) {
         Text(
@@ -134,16 +97,6 @@ private fun DriverNumber(text: String?) {
 
         )
     }
-}
-
-@Composable
-fun Points(points: String) {
-    Text(
-        text = points,
-        fontSize = 22.sp,
-        fontFamily = formula1Bold,
-        modifier = Modifier.width(70.dp)
-    )
 }
 
 @Preview(showBackground = true)

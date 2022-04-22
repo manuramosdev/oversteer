@@ -18,7 +18,9 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.manuramos.oversteer.R
 import dev.manuramos.oversteer.ui.theme.OversteerTheme
 import dev.manuramos.oversteer.ui.theme.Purple500
+import dev.manuramos.oversteer.ui.views.calendar.CalendarScreen
 import dev.manuramos.oversteer.ui.views.driver_standings.DriversScreen
+import dev.manuramos.oversteer.ui.views.stats.StatsScreen
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
