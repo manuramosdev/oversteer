@@ -1,14 +1,15 @@
 package dev.manuramos.oversteer.data.remote.dto
 
 import dev.manuramos.oversteer.data.Dto
-import dev.manuramos.oversteer.domain.model.Race
+import dev.manuramos.oversteer.domain.model.Circuit
+import dev.manuramos.oversteer.domain.model.Location
 
 data class DriverResultsResponse(
     val MRData: MRDataDriverResults
 )
 
 data class MRDataDriverResults(
-    val RaceTable: RaceTableDto,
+    val RaceTable: DriverRaceTableDto,
     val limit: String,
     val offset: String,
     val series: String,
@@ -17,12 +18,13 @@ data class MRDataDriverResults(
     val xmlns: String
 )
 
-data class RaceTableDto(
-    val Races: List<RaceDto>,
+data class DriverRaceTableDto(
+    val Races: List<DriverRaceDto>,
     val driverId: String,
     val season: String
 )
-data class RaceDto(
+
+data class DriverRaceDto(
     val Circuit: CircuitDto,
     val Results: List<RaceResultDto>,
     val date: String,
@@ -31,9 +33,7 @@ data class RaceDto(
     val season: String,
     val time: String,
     val url: String
-): Dto<Race> {
-    override fun toDomain(): Race = Race(name = raceName)
-}
+)
 
 data class RaceResultDto(
     val Constructor: ConstructorDto,
@@ -70,14 +70,29 @@ data class CircuitDto(
     val circuitId: String,
     val circuitName: String,
     val url: String
-)
+) : Dto<Circuit> {
+    override fun toDomain(): Circuit = Circuit(
+        location = Location.toDomain(),
+        circuitId = circuitId,
+        circuitName = circuitName,
+        url = url,
+    )
+
+}
 
 data class LocationDto(
     val country: String,
     val lat: String,
     val locality: String,
     val long: String
-)
+) : Dto<Location> {
+    override fun toDomain(): Location = Location(
+        country = country,
+        lat = lat,
+        locality = locality,
+        long = long,
+    )
+}
 
 data class TimeWithMillisDto(
     val millis: String,

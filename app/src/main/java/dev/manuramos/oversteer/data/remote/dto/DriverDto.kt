@@ -12,7 +12,7 @@ data class DriverDto(
     val nationality: String,
     val permanentNumber: String?,
     val url: String
-): Dto<Driver> {
+) : Dto<Driver> {
     override fun toDomain() = Driver(
         driverId = driverId,
         givenName = givenName,

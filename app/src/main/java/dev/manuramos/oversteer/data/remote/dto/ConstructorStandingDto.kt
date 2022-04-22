@@ -9,13 +9,11 @@ data class ConstructorStandingDto(
     val position: String,
     val positionText: String,
     val wins: String
-): Dto<ConstructorStanding> {
-    override fun toDomain(): ConstructorStanding {
-        return ConstructorStanding(
-            points = points,
-            position = position,
-            wins = wins,
-            constructor = Constructor.toDomain(),
-        )
-    }
+) : Dto<ConstructorStanding> {
+    override fun toDomain(): ConstructorStanding = ConstructorStanding(
+        points = points,
+        position = position,
+        wins = wins,
+        constructor = Constructor.toDomain(),
+    )
 }

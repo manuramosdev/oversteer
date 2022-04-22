@@ -11,7 +11,7 @@ data class DriverStandingDto(
     val position: String,
     val positionText: String,
     val wins: String
-): Dto<DriverStanding> {
+) : Dto<DriverStanding> {
     override fun toDomain(): DriverStanding = DriverStanding(
         position = position,
         points = points,

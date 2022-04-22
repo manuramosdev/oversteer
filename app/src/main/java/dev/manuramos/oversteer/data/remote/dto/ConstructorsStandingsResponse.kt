@@ -4,7 +4,7 @@ data class ConstructorsStandingsResponse(
     val MRData: MRDataConstructorsStandings
 )
 
-data class MRDataConstructorsStandings (
+data class MRDataConstructorsStandings(
     val StandingsTable: StandingsTableConstructorStandings,
     val limit: String,
     val offset: String,

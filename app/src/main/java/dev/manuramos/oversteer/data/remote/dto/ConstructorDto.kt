@@ -8,7 +8,7 @@ data class ConstructorDto(
     val name: String,
     val nationality: String,
     val url: String
-): Dto<Constructor> {
+) : Dto<Constructor> {
     override fun toDomain() = Constructor(
         constructorId = constructorId,
         name = name,

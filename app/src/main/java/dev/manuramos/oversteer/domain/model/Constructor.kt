@@ -18,6 +18,7 @@ data class ConstructorStanding(
     val wins: String,
     val constructor: Constructor,
 )
+
 val COLORS: Map<String, Long> = mapOf(
     "mercedes" to 0xFF00D2BE,
     "red_bull" to 0xFF0600EF,
