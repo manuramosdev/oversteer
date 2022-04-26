@@ -1,4 +1,4 @@
-package dev.manuramos.oversteer.ui.views.constructor_standings
+package dev.manuramos.oversteer.ui.views.constructorStandings
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel

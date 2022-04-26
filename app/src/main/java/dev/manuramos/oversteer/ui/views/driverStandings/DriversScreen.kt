@@ -1,4 +1,4 @@
-package dev.manuramos.oversteer.ui.views.driver_standings
+package dev.manuramos.oversteer.ui.views.driverStandings
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items

@@ -13,7 +13,6 @@ import javax.inject.Singleton
 
 const val BASE_URL = "https://ergast.com/api/f1/"
 
-
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {

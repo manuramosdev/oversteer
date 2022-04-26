@@ -1,4 +1,4 @@
-package dev.manuramos.oversteer.domain.use_case
+package dev.manuramos.oversteer.domain.useCase
 
 import dev.manuramos.oversteer.common.Resource
 import kotlinx.coroutines.flow.Flow

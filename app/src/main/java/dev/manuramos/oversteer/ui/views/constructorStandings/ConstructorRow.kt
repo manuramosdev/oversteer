@@ -1,4 +1,4 @@
-package dev.manuramos.oversteer.ui.views.constructor_standings
+package dev.manuramos.oversteer.ui.views.constructorStandings
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*

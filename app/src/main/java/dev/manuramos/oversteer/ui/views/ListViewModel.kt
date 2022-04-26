@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.manuramos.oversteer.common.Resource
-import dev.manuramos.oversteer.domain.use_case.GetListUseCase
+import dev.manuramos.oversteer.domain.useCase.GetListUseCase
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
