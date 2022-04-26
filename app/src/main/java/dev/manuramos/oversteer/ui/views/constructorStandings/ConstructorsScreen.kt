@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.manuramos.oversteer.domain.model.ConstructorStanding
-import dev.manuramos.oversteer.domain.use_case.GetConstructorStandingsUseCase
+import dev.manuramos.oversteer.domain.useCase.GetConstructorStandingsUseCase
 import dev.manuramos.oversteer.ui.views.ListScreen
 import dev.manuramos.oversteer.ui.views.ListViewModel
 import javax.inject.Inject

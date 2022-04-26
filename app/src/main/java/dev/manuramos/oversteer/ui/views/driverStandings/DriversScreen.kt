@@ -7,7 +7,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.manuramos.oversteer.domain.model.DriverStanding
-import dev.manuramos.oversteer.domain.use_case.GetDriverStandingsUseCase
+import dev.manuramos.oversteer.domain.useCase.GetDriverStandingsUseCase
 import dev.manuramos.oversteer.driverStandings
 import dev.manuramos.oversteer.ui.views.ListScreen
 import dev.manuramos.oversteer.ui.views.ListViewModel

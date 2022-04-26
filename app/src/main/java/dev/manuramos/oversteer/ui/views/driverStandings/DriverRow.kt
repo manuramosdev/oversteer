@@ -69,6 +69,7 @@ private fun DriverName(driver: Driver) {
     Column(
         modifier = Modifier
             .width(130.dp)
+//            .border(1.dp, color = Color.Black, shape = CircleShape)
     ) {
         Text(
             text = driver.givenName,
