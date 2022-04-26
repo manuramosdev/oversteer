@@ -18,7 +18,6 @@ data class DriverDto(
         givenName = givenName,
         familyName = familyName,
         nationality = nationality,
-        // todo catch exception
         permanentNumber = permanentNumber?.toInt(),
         code = code,
         url = url,

@@ -7,9 +7,6 @@ import kotlinx.coroutines.flow.flow
 open class GetListUseCase<T>(
     val getItems: suspend () -> List<T>
 ) {
-    // todo errors
-    // todo this encapsulates errors in dto to domain transformation
-    // todo database?
     operator fun invoke(): Flow<Resource<List<T>>> =
         flow {
             try {
