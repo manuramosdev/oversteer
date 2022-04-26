@@ -13,7 +13,7 @@ data class DriverDto(
     val permanentNumber: String?,
     val url: String
 ) : Dto<Driver> {
-    override fun toDomain() = Driver(
+    override val data = Driver(
         driverId = driverId,
         givenName = givenName,
         familyName = familyName,

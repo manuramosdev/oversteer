@@ -83,8 +83,8 @@ data class CircuitDto(
     val circuitName: String,
     val url: String
 ) : Dto<Circuit> {
-    override fun toDomain(): Circuit = Circuit(
-        location = location.toDomain(),
+    override val data = Circuit(
+        location = location.data,
         circuitId = circuitId,
         circuitName = circuitName,
         url = url,
@@ -98,7 +98,7 @@ data class LocationDto(
     val locality: String,
     val long: String
 ) : Dto<Location> {
-    override fun toDomain(): Location = Location(
+    override val data = Location(
         country = country,
         lat = lat,
         locality = locality,

@@ -2,16 +2,14 @@ package dev.manuramos.oversteer.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
 import dev.manuramos.oversteer.data.Dto
-import dev.manuramos.oversteer.data.toDomain
+import dev.manuramos.oversteer.data.data
 import dev.manuramos.oversteer.domain.model.ConstructorStanding
 
 data class ConstructorsStandingsResponse(
     @SerializedName("MRData")
     val mRData: MRDataConstructorsStandings
 ): Dto<List<ConstructorStanding>> {
-    override fun toDomain(): List<ConstructorStanding> =
-        mRData.standingsTable.standingsLists.first().constructorStandings
-            .toDomain()
+    override val data = mRData.standingsTable.standingsLists.first().constructorStandings.data
 }
 
 data class MRDataConstructorsStandings(
