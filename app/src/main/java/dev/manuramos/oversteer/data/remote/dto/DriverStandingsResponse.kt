@@ -1,11 +1,21 @@
 package dev.manuramos.oversteer.data.remote.dto
 
+import com.google.gson.annotations.SerializedName
+import dev.manuramos.oversteer.data.Dto
+import dev.manuramos.oversteer.data.toDomain
+import dev.manuramos.oversteer.domain.model.DriverStanding
+
 data class DriverStandingsResponse(
-    val MRData: MRDataDriverStandings
-)
+    @SerializedName("MRData")
+    val mRData: MRDataDriverStandings
+) : Dto<List<DriverStanding>> {
+    override fun toDomain(): List<DriverStanding> =
+        mRData.standingsTable.standingsLists.first().driverStandings.toDomain()
+}
 
 data class MRDataDriverStandings(
-    val StandingsTable: StandingsTable,
+    @SerializedName("StandingsTable")
+    val standingsTable: StandingsTable,
     val limit: String,
     val offset: String,
     val series: String,
@@ -15,12 +25,14 @@ data class MRDataDriverStandings(
 )
 
 data class StandingsTable(
-    val StandingsLists: List<StandingsLists>,
+    @SerializedName("StandingsLists")
+    val standingsLists: List<StandingsLists>,
     val season: String
 )
 
 data class StandingsLists(
-    val DriverStandings: List<DriverStandingDto>,
+    @SerializedName("DriverStandings")
+    val driverStandings: List<DriverStandingDto>,
     val round: String,
     val season: String
 )

@@ -1,15 +1,21 @@
 package dev.manuramos.oversteer.data.remote.dto
 
+import com.google.gson.annotations.SerializedName
 import dev.manuramos.oversteer.data.Dto
+import dev.manuramos.oversteer.data.toDomain
 import dev.manuramos.oversteer.domain.model.Race
 import java.util.*
 
 data class CalendarResponse(
-    val MRData: MRDataCalendar
-)
+    @SerializedName("MRData")
+    val mRData: MRDataCalendar
+): Dto<List<Race>> {
+    override fun toDomain(): List<Race> = mRData.raceTable.races.toDomain()
+}
 
 data class MRDataCalendar(
-    val RaceTable: RaceTableDto,
+    @SerializedName("RaceTable")
+    val raceTable: RaceTableDto,
     val limit: String,
     val offset: String,
     val series: String,
@@ -19,17 +25,24 @@ data class MRDataCalendar(
 )
 
 data class RaceTableDto(
-    val Races: List<RaceDto>,
+    @SerializedName("Races")
+    val races: List<RaceDto>,
     val season: String
 )
 
 data class RaceDto(
-    val Circuit: CircuitDto,
-    val FirstPractice: SessionTimeDto,
-    val Qualifying: SessionTimeDto,
-    val SecondPractice: SessionTimeDto,
-    val Sprint: SessionTimeDto?,
-    val ThirdPractice: SessionTimeDto?,
+    @SerializedName("Circuit")
+    val circuit: CircuitDto,
+    @SerializedName("FirstPractice")
+    val firstPractice: SessionTimeDto,
+    @SerializedName("Qualifying")
+    val qualifying: SessionTimeDto,
+    @SerializedName("SecondPractice")
+    val secondPractice: SessionTimeDto,
+    @SerializedName("Sprint")
+    val sprint: SessionTimeDto?,
+    @SerializedName("ThirdPractice")
+    val thirdPractice: SessionTimeDto?,
     val date: String,
     val raceName: String,
     val round: String,
@@ -38,12 +51,12 @@ data class RaceDto(
     val url: String
 ) : Dto<Race> {
     override fun toDomain(): Race = Race(
-        circuit = Circuit.toDomain(),
-        firstPractice = FirstPractice.toDomain(),
-        qualifying = Qualifying.toDomain(),
-        secondPractice = SecondPractice.toDomain(),
-        sprint = Sprint?.toDomain(),
-        thirdPractice = ThirdPractice?.toDomain(),
+        circuit = circuit.toDomain(),
+        firstPractice = firstPractice.toDomain(),
+        qualifying = qualifying.toDomain(),
+        secondPractice = secondPractice.toDomain(),
+        sprint = sprint?.toDomain(),
+        thirdPractice = thirdPractice?.toDomain(),
         // todo
         race = Date(),
         raceName = raceName,

@@ -1,15 +1,18 @@
 package dev.manuramos.oversteer.data.remote.dto
 
+import com.google.gson.annotations.SerializedName
 import dev.manuramos.oversteer.data.Dto
 import dev.manuramos.oversteer.domain.model.Circuit
 import dev.manuramos.oversteer.domain.model.Location
 
 data class DriverResultsResponse(
-    val MRData: MRDataDriverResults
+    @SerializedName("MRData")
+    val mRData: MRDataDriverResults
 )
 
 data class MRDataDriverResults(
-    val RaceTable: DriverRaceTableDto,
+    @SerializedName("RaceTable")
+    val raceTable: DriverRaceTableDto,
     val limit: String,
     val offset: String,
     val series: String,
@@ -19,14 +22,16 @@ data class MRDataDriverResults(
 )
 
 data class DriverRaceTableDto(
-    val Races: List<DriverRaceDto>,
-    val driverId: String,
+    @SerializedName("Races")
+    val races: String,
     val season: String
 )
 
 data class DriverRaceDto(
-    val Circuit: CircuitDto,
-    val Results: List<RaceResultDto>,
+    @SerializedName("Circuit")
+    val circuit: CircuitDto,
+    @SerializedName("Results")
+    val results: List<RaceResultDto>,
     val date: String,
     val raceName: String,
     val round: String,
@@ -36,10 +41,14 @@ data class DriverRaceDto(
 )
 
 data class RaceResultDto(
-    val Constructor: ConstructorDto,
-    val Driver: DriverDto,
-    val FastestLap: FastestLapDto,
-    val Time: TimeWithMillisDto,
+    @SerializedName("Constructor")
+    val constructor: ConstructorDto,
+    @SerializedName("Driver")
+    val driver: DriverDto,
+    @SerializedName("FastestLap")
+    val fastestLap: FastestLapDto,
+    @SerializedName("Time")
+    val time: TimeWithMillisDto,
     val grid: String,
     val laps: String,
     val number: String,
@@ -50,8 +59,10 @@ data class RaceResultDto(
 )
 
 data class FastestLapDto(
-    val AverageSpeed: AverageSpeedDto,
-    val Time: TimeDto,
+    @SerializedName("AverageSpeed")
+    val averageSpeed: AverageSpeedDto,
+    @SerializedName("Time")
+    val time: TimeDto,
     val lap: String,
     val rank: String
 )
@@ -66,13 +77,14 @@ data class TimeDto(
 )
 
 data class CircuitDto(
-    val Location: LocationDto,
+    @SerializedName("Location")
+    val location: LocationDto,
     val circuitId: String,
     val circuitName: String,
     val url: String
 ) : Dto<Circuit> {
     override fun toDomain(): Circuit = Circuit(
-        location = Location.toDomain(),
+        location = location.toDomain(),
         circuitId = circuitId,
         circuitName = circuitName,
         url = url,
