@@ -2,7 +2,7 @@ package dev.manuramos.oversteer.data.remote.dto
 
 import com.google.gson.annotations.SerializedName
 import dev.manuramos.oversteer.data.Dto
-import dev.manuramos.oversteer.data.toDomain
+import dev.manuramos.oversteer.data.data
 import dev.manuramos.oversteer.domain.model.Race
 import java.util.*
 
@@ -10,7 +10,7 @@ data class CalendarResponse(
     @SerializedName("MRData")
     val mRData: MRDataCalendar
 ): Dto<List<Race>> {
-    override fun toDomain(): List<Race> = mRData.raceTable.races.toDomain()
+    override val data: List<Race> = mRData.raceTable.races.data
 }
 
 data class MRDataCalendar(
@@ -50,20 +50,19 @@ data class RaceDto(
     val time: String,
     val url: String
 ) : Dto<Race> {
-    override fun toDomain(): Race = Race(
-        circuit = circuit.toDomain(),
-        firstPractice = firstPractice.toDomain(),
-        qualifying = qualifying.toDomain(),
-        secondPractice = secondPractice.toDomain(),
-        sprint = sprint?.toDomain(),
-        thirdPractice = thirdPractice?.toDomain(),
-        // todo
-        race = Date(),
-        raceName = raceName,
-        round = round,
-        season = season,
-        url = url,
-    )
+    override val data = Race(
+            circuit = circuit.data,
+            firstPractice = firstPractice.data,
+            qualifying = qualifying.data,
+            secondPractice = secondPractice.data,
+            sprint = sprint?.data,
+            thirdPractice = thirdPractice?.data,
+            race = Date(),
+            raceName = raceName,
+            round = round,
+            season = season,
+            url = url,
+        )
 }
 
 data class SessionTimeDto(
@@ -71,5 +70,5 @@ data class SessionTimeDto(
     val time: String
 ) : Dto<Date> {
     // todo
-    override fun toDomain(): Date = Date()
+    override val data = Date()
 }

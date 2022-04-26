@@ -1,7 +1,7 @@
 package dev.manuramos.oversteer.data
 
 interface Dto<T> {
-    fun toDomain(): T
+    val data: T
 }
 
-fun <T> List<Dto<T>>.toDomain(): List<T> = this.map { it.toDomain() }
+val <T> List<Dto<T>>.data: List<T> get() = this.map { it.data }

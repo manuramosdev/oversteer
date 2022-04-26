@@ -12,10 +12,10 @@ data class ConstructorStandingDto(
     val positionText: String,
     val wins: String
 ) : Dto<ConstructorStanding> {
-    override fun toDomain(): ConstructorStanding = ConstructorStanding(
+    override val data = ConstructorStanding(
         points = points,
         position = position,
         wins = wins,
-        constructor = constructor.toDomain(),
+        constructor = constructor.data,
     )
 }
