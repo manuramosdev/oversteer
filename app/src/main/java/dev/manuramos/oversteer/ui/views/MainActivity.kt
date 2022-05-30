@@ -66,7 +66,6 @@ fun Navigation(navController: NavHostController) {
 
 @Composable
 fun OversteerBottomNavigationBar(navController: NavHostController) {
-    // TODO val items = NavigationItem::class.sealedSubclasses.mapNotNull { it.objectInstance }
     val items = listOf(
         NavigationItem.Calendar,
         NavigationItem.Drivers,
@@ -78,7 +77,6 @@ fun OversteerBottomNavigationBar(navController: NavHostController) {
         contentColor = Color.White
     ) {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
-        // TODO unused?
         val currentRoute = navBackStackEntry?.destination?.route
         items.forEach { item ->
             BottomNavigationItem(

@@ -28,9 +28,6 @@ open class ListViewModel<T>(
             }
         }.launchIn(viewModelScope)
     }
-
-    // todo centralized error
-    // todo emptyListError?
 }
 
 // todo not used

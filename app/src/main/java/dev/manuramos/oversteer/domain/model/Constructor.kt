@@ -12,7 +12,6 @@ data class Constructor(
 }
 
 data class ConstructorStanding(
-    // todo numbers
     val position: String,
     val points: String,
     val wins: String,

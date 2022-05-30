@@ -69,6 +69,5 @@ data class SessionTimeDto(
     val date: String,
     val time: String
 ) : Dto<Date> {
-    // todo
     override val data = Date()
 }
