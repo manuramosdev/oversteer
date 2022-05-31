@@ -1,7 +1,6 @@
 package dev.manuramos.oversteer.ui.views.calendar
 
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
@@ -29,7 +28,7 @@ fun CalendarScreen(navigator: DestinationsNavigator) {
             TopAppBar() {
                 Row() {
                     Text(
-                        text = "SportsDataApp", fontSize = 25.sp, fontWeight = FontWeight.Bold,
+                        text = "Oversteer", fontSize = 25.sp, fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(start = 20.dp)
                     )
 
@@ -39,8 +38,14 @@ fun CalendarScreen(navigator: DestinationsNavigator) {
         },
         bottomBar = { OversteerBottomNavigationBar(navigator) }
     ) {
-        var viewModel : CalendarViewModel = hiltViewModel()
-        ListScreen(viewModel) @Composable { CalendarRow(it) }
+        Box(
+            modifier = Modifier
+                .fillMaxHeight(0.9f)
+                .fillMaxWidth()
+        ) {
+            var viewModel: CalendarViewModel = hiltViewModel()
+            ListScreen(viewModel) @Composable { CalendarRow(it) }
+        }
     }
 }
 

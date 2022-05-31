@@ -1,7 +1,7 @@
 package dev.manuramos.oversteer.ui.views.driverStandings
 
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Scaffold
@@ -24,6 +24,7 @@ import dev.manuramos.oversteer.driverStandings
 import dev.manuramos.oversteer.ui.views.ListScreen
 import dev.manuramos.oversteer.ui.views.ListViewModel
 import dev.manuramos.oversteer.ui.views.OversteerBottomNavigationBar
+import dev.manuramos.oversteer.ui.views.destinations.ConstructorsScreenDestination
 import javax.inject.Inject
 
 @Destination
@@ -34,7 +35,7 @@ fun DriversScreen(navigator: DestinationsNavigator) =
             TopAppBar() {
                 Row() {
                     Text(
-                        text = "SportsDataApp", fontSize = 25.sp, fontWeight = FontWeight.Bold,
+                        text = "Oversteer", fontSize = 25.sp, fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(start = 20.dp)
                     )
 
@@ -44,8 +45,15 @@ fun DriversScreen(navigator: DestinationsNavigator) =
         },
         bottomBar = { OversteerBottomNavigationBar(navigator) }
     ) {
-        var viewModel: DriversStandingsViewModel = hiltViewModel()
-        ListScreen(viewModel) @Composable { DriverRow(it) }
+        Box(
+            modifier = Modifier
+                .fillMaxHeight(0.9f)
+                .fillMaxWidth()
+        )
+        {
+            var viewModel: DriversStandingsViewModel = hiltViewModel()
+            ListScreen(viewModel) @Composable { DriverRow(it, navigator) }
+        }
     }
 
 @HiltViewModel
@@ -58,14 +66,10 @@ class DriversStandingsViewModel @Inject constructor(
 @Composable
 fun DriversList(
     drivers: List<DriverStanding>
+,navigator: DestinationsNavigator
 ) {
     LazyColumn {
-        items(drivers) { driverStanding -> DriverRow(driverStanding) }
+        items(drivers) { driverStanding -> DriverRow(driverStanding,navigator) }
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun StandingsPreview() {
-    DriversList(drivers = driverStandings)
-}

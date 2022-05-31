@@ -1,23 +1,27 @@
 package dev.manuramos.oversteer.domain.model
 
+import android.os.Parcelable
 import androidx.compose.ui.graphics.Color
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Constructor(
     val constructorId: String,
     val url: String,
     val name: String,
     val nationality: String,
-) {
+) : Parcelable {
     val color = Color(COLORS[constructorId] ?: 0xFFFFFFFF)
 }
 
+@Parcelize
 data class ConstructorStanding(
     // todo numbers
     val position: String,
     val points: String,
     val wins: String,
     val constructor: Constructor,
-)
+): Parcelable
 
 val COLORS: Map<String, Long> = mapOf(
     "mercedes" to 0xFF00D2BE,

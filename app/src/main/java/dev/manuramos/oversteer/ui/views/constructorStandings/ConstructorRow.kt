@@ -6,6 +6,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import dev.manuramos.oversteer.domain.model.ConstructorStanding
 import dev.manuramos.oversteer.formula1Bold
@@ -26,13 +27,13 @@ fun ConstructorRow(constructorStanding: ConstructorStanding) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Spacer(modifier = Modifier.width(4.dp))
-        Position(constructorStanding.position)
+        Position(constructorStanding.position, Color.White)
         Spacer(modifier = Modifier.width(4.dp))
         ConstructorName(constructorStanding)
         Spacer(modifier = Modifier.width(10.dp))
         Text(
             text = constructorStanding.constructor.nationality,
-            fontFamily = formula1Regular
+            fontFamily = formula1Regular,color = Color.White
         )
         Spacer(modifier = Modifier.width(12.dp))
         Points(constructorStanding.points)
@@ -46,6 +47,7 @@ private fun ConstructorName(constructorStanding: ConstructorStanding) {
     )
     Text(
         text = name,
-        fontFamily = formula1Bold
+        fontFamily = formula1Bold,
+        color = Color.White
     )
 }

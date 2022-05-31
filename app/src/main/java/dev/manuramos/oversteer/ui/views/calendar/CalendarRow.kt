@@ -5,6 +5,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import dev.manuramos.oversteer.domain.model.Race
 import dev.manuramos.oversteer.formula1Bold
@@ -24,7 +25,7 @@ fun CalendarRow(race: Race) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Spacer(modifier = Modifier.width(4.dp))
-        Position(race.round)
+        Position(race.round, Color.Black)
         Spacer(modifier = Modifier.width(4.dp))
         RaceName(race)
         Spacer(modifier = Modifier.width(10.dp))

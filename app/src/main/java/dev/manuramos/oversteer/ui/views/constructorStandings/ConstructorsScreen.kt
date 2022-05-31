@@ -1,7 +1,6 @@
 package dev.manuramos.oversteer.ui.views.constructorStandings
 
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
@@ -29,7 +28,7 @@ fun ConstructorsScreen(navigator: DestinationsNavigator) =
             TopAppBar() {
                 Row() {
                     Text(
-                        text = "SportsDataApp", fontSize = 25.sp, fontWeight = FontWeight.Bold,
+                        text = "Oversteer", fontSize = 25.sp, fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(start = 20.dp)
                     )
 
@@ -39,8 +38,15 @@ fun ConstructorsScreen(navigator: DestinationsNavigator) =
         },
         bottomBar = { OversteerBottomNavigationBar(navigator) }
     ) {
-           var viewModel: ConstructorsStandingsViewModel = hiltViewModel()
-           ListScreen(viewModel) @Composable { ConstructorRow(it) }
+           Box(
+               modifier = Modifier
+                   .fillMaxHeight(0.9f)
+                   .fillMaxWidth()
+           )
+           {
+               var viewModel: ConstructorsStandingsViewModel = hiltViewModel()
+               ListScreen(viewModel) @Composable { ConstructorRow(it) }
+           }
   }
 @HiltViewModel
 class ConstructorsStandingsViewModel @Inject constructor(

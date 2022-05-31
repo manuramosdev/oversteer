@@ -1,5 +1,9 @@
 package dev.manuramos.oversteer.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Driver(
     val driverId: String,
     val givenName: String,
@@ -9,10 +13,11 @@ data class Driver(
     val code: String,
     val url: String,
     val dateOfBirth: String,
-) {
+):Parcelable {
     val fullName = """$givenName $familyName"""
 }
 
+@Parcelize
 data class DriverStanding(
     val position: String,
 //    "positionText": "21",
@@ -20,4 +25,4 @@ data class DriverStanding(
     val wins: Number,
     val driver: Driver,
     val constructors: List<Constructor>,
-)
+):Parcelable

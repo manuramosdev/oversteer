@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.manuramos.oversteer.formula1Bold
@@ -15,6 +16,7 @@ fun Points(points: String) {
         text = points,
         fontSize = 22.sp,
         fontFamily = formula1Bold,
+        color= Color.White,
         modifier = Modifier.width(70.dp)
     )
 }
